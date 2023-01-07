@@ -33,18 +33,19 @@ def main():
 
     matrix = Matrix() 
     player = Player(matrix)
-    print(f"{bcolors.OKGREEN}Warning:Game initializated!{bcolors.ENDC}")
+    print(f"{bcolors.OKGREEN}Warning: Game initializated!{bcolors.ENDC}")
 
     
-    t1 = th.Thread(target=player.play)    
-    # t2 = th.Thread(target=matrix.draw_matrix)
+      
+   
     
-    t1.start()
-    matrix.draw_matrix()
+    target=player.play  
+    
     while 1:
+        matrix.draw_matrix()
         if(player.get_stop()):
-            t1.join()
-    # t2.start()
+            break
+     
     
     
         

@@ -29,32 +29,18 @@ class bcolors:
 
 def main():
 
+    
+    matrix = Matrix() #Se inicializa el tablero del juego. 
+    player = Player(matrix) #Se crea el juego principal y se inicializan los diferentes objetos del juego. 
+    print(f"{bcolors.OKGREEN}Warning: Game initializated!{bcolors.ENDC}")      
+    
      
-
-    matrix = Matrix() 
-    player = Player(matrix)
-    print(f"{bcolors.OKGREEN}Warning: Game initializated!{bcolors.ENDC}")
-
-    
-      
-   
-    
-    target=player.play  
     
     while 1:
-        matrix.draw_matrix()
+        player.play() # Se inicializa el juego.
+        matrix.draw_matrix() #Se actualiza la pantalla
         if(player.get_stop()):
             break
-     
-    
-    
-        
-        
- 
-        
-        
-        
-        
         
         # Movimientos verticales
 
@@ -177,7 +163,7 @@ class Matrix(object):
             msg ="1"
 
         with canvas(self.device) as draw:            
-            text(draw,(1, 1), msg, fill="white", font=proportional(CP437_FONT))
+            text(draw,(2, 1), msg, fill="white", font=proportional(CP437_FONT))
         time.sleep(5)
 
     def show_init(self):
